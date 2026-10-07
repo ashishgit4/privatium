@@ -135,6 +135,12 @@ Questions, bug reports, enhancement ideas and requests are welcome as GitHub iss
 
 ## Credits
 
+### Authors
+- [Gabriel Mongefranco](https://gabriel.mongefranco.com/) ( [@gabrielmongefranco](https://github.com,/gabrielmongefranco) )
+
+### Contributors
+- Aaqibhafeez Khan ( [@Aaqibhafeezkhan](https://github.com/Aaqibhafeezkhan) )
+
 ### This work is based in part on the following projects and libraries:
 
 - [SQLite](https://sqlite.org/) — the in-process SQL engine the event log is materialized
