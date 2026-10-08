@@ -1380,7 +1380,6 @@ impl Node {
         };
         if let Outcome::Loaded(app) = self.load_one(&candidate, &store::cutoff_now())? {
             self.apps.insert(slug.to_owned(), *app);
-            let _ = self.load_seed(slug);
         }
         Ok(())
     }

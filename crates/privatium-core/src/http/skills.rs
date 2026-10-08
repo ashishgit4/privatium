@@ -106,7 +106,11 @@ pub fn files() -> Vec<(String, &'static [u8])> {
 /// timestamp rather than the moment of the request.
 #[must_use]
 pub fn bundle() -> &'static [u8] {
-    static BUNDLE: LazyLock<Vec<u8>> = LazyLock::new(|| crate::zip::stored(&files()));
+    static BUNDLE: LazyLock<Vec<u8>> = LazyLock::new(|| {
+        let f = files();
+        let refs: Vec<(String, &[u8])> = f.into_iter().map(|(k, v)| (k, v as &[u8])).collect();
+        crate::zip::stored(&refs)
+    });
     BUNDLE.as_slice()
 }
 
