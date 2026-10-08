@@ -124,8 +124,6 @@ fn collect<'a>(dir: &'a Dir<'a>, into: &mut Vec<(String, &'a [u8])>) {
     }
 }
 
-
-
 // AGENTS.md, Style: unwrap() is permitted in tests. The crate-level deny reaches unit
 // tests inside src/, so each one opts out where it is declared.
 #[allow(clippy::unwrap_used, clippy::expect_used)]

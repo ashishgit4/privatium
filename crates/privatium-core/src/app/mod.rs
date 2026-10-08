@@ -1371,8 +1371,6 @@ impl Node {
         let _ = std::fs::remove_dir_all(&data_dir);
         let _ = std::fs::remove_file(&cache_db);
         let _ = std::fs::remove_dir_all(&snap_dir);
-        self.state.remove(slug);
-        self.state.flush()?;
         let candidate = Candidate {
             folder: slug.to_owned(),
             dir,

@@ -2,6 +2,7 @@
 // crates/privatium-core/src/zip.rs
 // Author(s): Gabriel Mongefranco
 // Created: 2026-10-08
+// Last Modified: 2026-10-08
 // Summary: A stored-only zip writer (PKWARE APPNOTE 6.3.x): local file headers, a central
 //          directory, and the end-of-central-directory record. Method 0, no data descriptors, no
 //          zip64, so the format is the 1989 one every extractor reads.
