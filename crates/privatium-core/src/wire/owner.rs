@@ -420,7 +420,7 @@ impl Handler {
                 (SettingsPage::Devices, outcome)
             }
             OwnerAction::AppClear(slug) => {
-                let outcome = self.lock().clear_app(&slug);
+                let outcome = self.lock().clear_app(slug);
                 (SettingsPage::Apps, outcome)
             }
         };
@@ -490,7 +490,7 @@ impl Handler {
             return headers::method_not_allowed("GET, HEAD");
         }
         let head = request.method() == Method::HEAD;
-        let mut node = self.lock();
+        let node = self.lock();
         let response = match node.backup_app_zip(slug) {
             Ok(bytes) => {
                 let mut response = headers::with_body(StatusCode::OK, headers::ZIP, bytes);
