@@ -1389,11 +1389,7 @@ impl Node {
         })?;
         let data_dir = self.paths.data_dir().join(slug);
         let mut entries = Vec::new();
-        fn collect(
-            dir: &std::path::Path,
-            prefix: &str,
-            entries: &mut Vec<(String, Vec<u8>)>,
-        ) {
+        fn collect(dir: &std::path::Path, prefix: &str, entries: &mut Vec<(String, Vec<u8>)>) {
             if let Ok(rd) = std::fs::read_dir(dir) {
                 for entry in rd.flatten() {
                     let path = entry.path();
@@ -1414,8 +1410,10 @@ impl Node {
             }
         }
         collect(&data_dir, "", &mut entries);
-        let refs: Vec<(String, &[u8])> =
-            entries.iter().map(|(k, v)| (k.clone(), v.as_slice())).collect();
+        let refs: Vec<(String, &[u8])> = entries
+            .iter()
+            .map(|(k, v)| (k.clone(), v.as_slice()))
+            .collect();
         Ok(crate::zip::stored(&refs))
     }
 
