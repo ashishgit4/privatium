@@ -228,17 +228,26 @@ impl Router {
                 "/devices/pairing/close" => Route::PairClose,
                 _ => {
                     if let Some(rest_slug) = rest.strip_prefix("/apps/") {
-                        if let Some(slug) = rest_slug.strip_suffix("/seed").filter(|slug| crate::app::manifest::is_valid_slug(slug)) {
+                        if let Some(slug) = rest_slug
+                            .strip_suffix("/seed")
+                            .filter(|slug| crate::app::manifest::is_valid_slug(slug))
+                        {
                             return Route::Seed {
                                 slug: slug.to_owned(),
                             };
                         }
-                        if let Some(slug) = rest_slug.strip_suffix("/backup.zip").filter(|slug| crate::app::manifest::is_valid_slug(slug)) {
+                        if let Some(slug) = rest_slug
+                            .strip_suffix("/backup.zip")
+                            .filter(|slug| crate::app::manifest::is_valid_slug(slug))
+                        {
                             return Route::AppBackup {
                                 slug: slug.to_owned(),
                             };
                         }
-                        if let Some(slug) = rest_slug.strip_suffix("/clear").filter(|slug| crate::app::manifest::is_valid_slug(slug)) {
+                        if let Some(slug) = rest_slug
+                            .strip_suffix("/clear")
+                            .filter(|slug| crate::app::manifest::is_valid_slug(slug))
+                        {
                             return Route::AppClear {
                                 slug: slug.to_owned(),
                             };

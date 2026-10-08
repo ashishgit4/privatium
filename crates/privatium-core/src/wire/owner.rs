@@ -493,9 +493,15 @@ impl Handler {
         let mut node = self.lock();
         let response = match node.backup_app_zip(slug) {
             Ok(bytes) => {
-                let mut response = headers::with_body(StatusCode::OK, headers::ZIP, bytes);
-                if let Ok(value) = axum::http::HeaderValue::from_str(&format!("attachment; filename=\"{}-backup.zip\"", slug)) {
-                    response.headers_mut().insert(axum::http::header::CONTENT_DISPOSITION, value);
+                let mut response =
+                    headers::with_body(StatusCode::OK, headers::ZIP, bytes);
+                if let Ok(value) = axum::http::HeaderValue::from_str(&format!(
+                    "attachment; filename=\"{}-backup.zip\"",
+                    slug
+                )) {
+                    response
+                        .headers_mut()
+                        .insert(axum::http::header::CONTENT_DISPOSITION, value);
                 }
                 response
             }
