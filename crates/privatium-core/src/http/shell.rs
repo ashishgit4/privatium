@@ -867,10 +867,10 @@ fn apps_page(cx: &Context<'_>, body: &mut String) -> Result<()> {
              hx-target=\"body\" hx-push-url=\"true\" hx-confirm=\"Are you sure you want to delete all data for this app? This cannot be undone. Download a backup first.\">\
              {}<button type=\"submit\" class=\"pv-btn pv-btn-danger\">{} Clear data</button>\
              </form></div>\n",
-             icon("download"),
-             cx.csrf.field(&format!("/settings/apps/{}/clear", row.slug)),
-             icon("trash"),
-             slug = escape(&row.slug)
+            icon("download"),
+            cx.csrf.field(&format!("/settings/apps/{}/clear", row.slug)),
+            icon("trash"),
+            slug = escape(&row.slug)
         );
 
         // Permission widenings read as a privacy warning (`spec/app-contract.md §5.4`);
