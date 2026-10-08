@@ -2,7 +2,7 @@
 // crates/privatium-core/src/http/shell.rs
 // Author(s): Gabriel Mongefranco
 // Created: 2026-09-03
-// Last Modified: 2026-10-04
+// Last Modified: 2026-10-09
 // Summary: The framework's own pages — launcher, settings, errors — and the frame a Tier 1 view
 //          renders inside, as server-rendered HTML with HTMX and inlined Bootstrap Icons
 //          (docs/architecture.md §2.5, docs/icons.md). The frame is the standard chrome of
@@ -861,7 +861,7 @@ fn apps_page(cx: &Context<'_>, body: &mut String) -> Result<()> {
 
         let _ = writeln!(
             body,
-            "<div class=\"pv-actions\" style=\"margin-top: 1rem; display: flex; gap: 0.5rem;\">\
+            "<div class=\"pv-actions\">\
              <a href=\"/settings/apps/{slug}/backup.zip\" class=\"pv-btn\">{} Backup data</a>\
              <form class=\"pv-inline\" method=\"post\" action=\"/settings/apps/{slug}/clear\" hx-post=\"/settings/apps/{slug}/clear\" \
              hx-target=\"body\" hx-push-url=\"true\" hx-confirm=\"Are you sure you want to delete all data for this app? This cannot be undone. Download a backup first.\">\
