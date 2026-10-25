@@ -2466,7 +2466,6 @@ async fn test_spec_cli_5_pv4xx_app_frame_and_reference_views() {
     let root = tempfile::tempdir().unwrap();
     configure(&root, LUA_CONFIG);
     let handler = handler_for(&root);
-    seed_animals(&handler).await;
 
     let mut documents: Vec<(&str, String)> = Vec::new();
     for path in [

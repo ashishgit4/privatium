@@ -1396,7 +1396,9 @@ impl Node {
             self.apps.insert(slug.to_owned(), *app);
             if has_seed && is_empty {
                 if let Ok(seeded) = self.load_seed(slug) {
-                    if let (Some(appended), Some(app)) = (seeded.appended, self.apps.get_mut(slug)) {
+                    if let (Some(appended), Some(app)) =
+                        (seeded.appended, self.apps.get_mut(slug))
+                    {
                         let dev = appended.dev.clone();
                         app.unfired.push((appended, dev));
                     }
